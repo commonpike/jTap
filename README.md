@@ -20,6 +20,8 @@ $('selector').on('tap', handler);
 
 **Note**: A noteworthy feature of plugin is a versatility. No matter where you are using the "tap" event: on a device with a touch screen or on a desktop computer - the handler will be executed disparately.
 
+**Note2**: Triggering a click event manually in javascript does not trigger a tap event. Likewise, triggering a tap event does not trigger a click event. Adapt your code to match the event expected.
+
 ## Changelog
 
 **Version [0.3.1](https://github.com/BR0kEN-/jTap/tree/v0.3.1)**, February 7, 2016:
