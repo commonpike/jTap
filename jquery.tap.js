@@ -2,6 +2,13 @@
   'use strict';
 
   /**
+   * margins to distinguish a tap from a move.
+   *
+   * @type {int}
+   */
+  var tapMarginX=10, tapMarginY=10;
+  
+  /**
    * Native event names for creating custom one.
    *
    * @type {Object}
@@ -60,11 +67,11 @@
             eventData.target === event.target &&
             // Time between first and last phases should be less than 750 ms.
             getTime() - eventData.time < 750 &&
-            // Coordinates, when event ends, should be the same as they were
+            // Coordinates, when event ends, should be almost the same as they were
             // on start.
             (
-              eventData.pageX === eventData.event.pageX &&
-              eventData.pageY === eventData.event.pageY
+              Math.abs(eventData.pageX - eventData.event.pageX) <= tapMarginX &&
+              Math.abs(eventData.pageY - eventData.event.pageY) <= tapMarginY
             )
           ) {
             event.type = specialEventName;
